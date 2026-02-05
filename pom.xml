@@ -33,14 +33,6 @@
             <artifactId>commons-csv</artifactId>
             <version>1.10.0</version>
         </dependency>
-
-        <!-- Lombok for boilerplate reduction (Optional but recommended) -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.30</version>
-            <scope>provided</scope>
-        </dependency>
     </dependencies>
 
 </project>

@@ -91,6 +91,7 @@ public class CsvParserService {
     private double parsePrice(String price) {
         try {
             String cleanPrice = price.replaceAll("[^0-9.]", "");
+            if (cleanPrice.isEmpty()) return 0.0;
             return Double.parseDouble(cleanPrice);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Price format error: " + price);
@@ -100,6 +101,7 @@ public class CsvParserService {
     private int parseMemory(String memory) {
         try {
             String cleanMemory = memory.replaceAll("[^0-9]", "");
+            if (cleanMemory.isEmpty()) return 0;
             return Integer.parseInt(cleanMemory);
         } catch (NumberFormatException e) {
              // Some memory fields might be empty or N/A, treat as 0 or throw
@@ -110,6 +112,7 @@ public class CsvParserService {
     private int parseClock(String clock) {
         try {
             String cleanClock = clock.replaceAll("[^0-9]", "");
+            if (cleanClock.isEmpty()) return 0;
             return Integer.parseInt(cleanClock);
         } catch (NumberFormatException e) {
              throw new IllegalArgumentException("Clock format error: " + clock);
@@ -120,6 +123,7 @@ public class CsvParserService {
         try {
             // Length might be like "335 mm" or "266.7 mm"
             String cleanLength = length.replaceAll("[^0-9.]", "");
+            if (cleanLength.isEmpty()) return 0;
             return (int) Double.parseDouble(cleanLength);
         } catch (NumberFormatException e) {
              // Allow 0 or skip
